@@ -1,33 +1,33 @@
 variable "name" {
-    type = string
-    description = "Name of vpc"
-    default = "vpc"
+  type        = string
+  description = "Name of vpc"
+  default     = "vpc"
 }
 
 variable "cidr" {
-    type = string
-    description = "Network address of vpc"
+  type        = string
+  description = "Network address of vpc"
 }
 
 variable "public_subnets" {
-  type = map(set(string))
+  type        = map(set(string))
   description = "A map of AZs and the public subnets to create in them"
-  default = {}
+  default     = {}
 }
 
 variable "private_subnets" {
-  type = map(set(string))
+  type        = map(set(string))
   description = "A map of AZs and the private subnets to create in them"
-  default = {}
+  default     = {}
 }
 
 variable "enable_dns_hostnames" {
-  type = bool
+  type    = bool
   default = true
 }
 
 variable "enable_dns_support" {
-  type = bool
+  type    = bool
   default = true
 }
 
