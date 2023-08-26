@@ -1,12 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wise Sayings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wise sayings</title>
 </head>
 <body>
-    <h1>Wise man say:</h1>
-    <h2>{{ saying }}</h2>
+    <div id="textContainer">
+        <p>A wise man once said...</p>
+    </div>
+
+    <script>
+        const textContainer = document.getElementById('textContainer');
+
+        // Replace 'your-server-url' with the actual URL of your server endpoint
+        const serverUrl = 'http://{{ backend_url }}:8080/';
+
+        // Fetch text from the server
+        fetch(serverUrl)
+            .then(response => response.json())
+            .then(json => {
+                textContainer.innerHTML = `<h2>${json.saying}</h2>`;
+            })
+            .catch(error => {
+                textContainer.innerHTML = `<p>Error loading saying: ${error}</p>`;
+            });
+    </script>
 </body>
 </html>
+
